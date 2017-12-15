@@ -431,6 +431,10 @@
 	@see https://haxe.org/manual/types-enum-instance.html</haxe_doc>
 		<meta><m n=":coreType"/></meta>
 	</abstract>
+	<class path="ImportAll" params="" file="ImportAll.hx"><main set="method" line="10" static="1">
+	<f a=""><x path="Void"/></f>
+	<meta><m n=":keep"/></meta>
+</main></class>
 	<abstract path="Map" params="K:V" file="/usr/share/haxe/std/Map.hx">
 		<from>
 			<icast field="fromStringMap"><c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c></icast>
@@ -1841,6 +1845,47 @@
 	@see https://haxe.org/manual/types.html
 	@see https://haxe.org/manual/std-reflection.html</haxe_doc>
 	</class>
+	<class path="ffi.CallInterface" params="" file="ffi/CallInterface.hx" extern="1">
+		<returnType public="1" set="null">
+			<c path="ffi.Type"/>
+			<haxe_doc>The type this function returns.</haxe_doc>
+		</returnType>
+		<argTypes public="1" set="null">
+			<c path="Array"><c path="ffi.Type"/></c>
+			<haxe_doc>The types of the arguments this function accepts.</haxe_doc>
+		</argTypes>
+		<prep public="1" set="method">
+			<f a="args:ret">
+				<c path="Array"><c path="ffi.Type"/></c>
+				<c path="ffi.Type"/>
+				<x path="ffi.Status"/>
+			</f>
+			<haxe_doc>Prepares it for calling by providing type information to the API.
+		@param args The types of the arguments this function accepts.
+		@param ret The return type of this function.
+		@return The status of this action.</haxe_doc>
+		</prep>
+		<call public="1" set="method">
+			<f a="fn:args">
+				<c path="ffi.Function"/>
+				<c path="Array"><d/></c>
+				<d/>
+			</f>
+			<haxe_doc>Calls the function with the arguments given.
+		@param fn The function to call.
+		@param args The arguments to call it with.
+		@return The return value of the function.</haxe_doc>
+		</call>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a string representation of the function.</haxe_doc>
+		</toString>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Constructs an empty calling interface.</haxe_doc>
+		</new>
+		<haxe_doc>Describes a callable function's interface.</haxe_doc>
+	</class>
 	<class path="ffi.Pointer" params="" file="ffi/Pointer.hx" extern="1">
 		<getString public="1" set="method">
 			<f a=""><c path="String"/></f>
@@ -1898,6 +1943,81 @@
 		@param bytes The number of bytes to allocate for.</haxe_doc>
 		</new>
 		<haxe_doc>Represents a pointer</haxe_doc>
+	</class>
+	<class path="ffi.Function" params="" file="ffi/Function.hx" extern="1">
+		<extends path="ffi.Pointer"/>
+		<haxe_doc>A pointer to a native function</haxe_doc>
+	</class>
+	<abstract path="ffi.Status" params="" file="ffi/Status.hx">
+		<this><x path="Int"/></this>
+		<haxe_doc>A CIF initialisation status.</haxe_doc>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="ffi._Status.Status_Impl_" params="" file="ffi/Status.hx" private="1" module="ffi.Status" extern="1">
+	<OK public="1" get="inline" set="null" expr="cast 0" line="6" static="1">
+		<x path="ffi.Status"/>
+		<meta>
+			<m n=":value"><e>cast 0</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The CIF worked on the function.</haxe_doc>
+	</OK>
+	<BAD_TYPEDEF public="1" get="inline" set="null" expr="cast 1" line="8" static="1">
+		<x path="ffi.Status"/>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The type definition in the CIF does not match the function's.</haxe_doc>
+	</BAD_TYPEDEF>
+	<BAD_ABI public="1" get="inline" set="null" expr="cast 2" line="10" static="1">
+		<x path="ffi.Status"/>
+		<meta>
+			<m n=":value"><e>cast 2</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The Application Binary Interface in the CIF does not match the function's.</haxe_doc>
+	</BAD_ABI>
+	<meta>
+		<m n=":final"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="ffi._Status.Status_Impl_" params="" file="ffi/Status.hx" private="1" module="ffi.Status" extern="1">
+		<OK public="1" get="inline" set="null" expr="cast 0" line="6" static="1">
+			<x path="ffi.Status"/>
+			<meta>
+				<m n=":value"><e>cast 0</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The CIF worked on the function.</haxe_doc>
+		</OK>
+		<BAD_TYPEDEF public="1" get="inline" set="null" expr="cast 1" line="8" static="1">
+			<x path="ffi.Status"/>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The type definition in the CIF does not match the function's.</haxe_doc>
+		</BAD_TYPEDEF>
+		<BAD_ABI public="1" get="inline" set="null" expr="cast 2" line="10" static="1">
+			<x path="ffi.Status"/>
+			<meta>
+				<m n=":value"><e>cast 2</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The Application Binary Interface in the CIF does not match the function's.</haxe_doc>
+		</BAD_ABI>
+		<meta>
+			<m n=":final"/>
+			<m n=":enum"/>
+		</meta>
 	</class>
 	<class path="ffi.Type" params="" file="ffi/Type.hx" extern="1">
 		<VOID public="1" set="null" static="1">
