@@ -2,10 +2,6 @@ package ffi.lib;
 
 #if(!macro && (neko || cpp))
 typedef Library = ffi.native.neko.Library;
-#elseif java
-typedef Library = ffi.native.java.Library;
-#elseif(nodejs && js)
-typedef Library = ffi.native.node.Library;
 #else
 /** A runtime shared libary - a .dll on Windows, a .so on Linux and a .dynlib on Mac OS X **/
 extern class Library {

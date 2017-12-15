@@ -3,7 +3,7 @@ import haxe.macro.Type;
 import haxe.macro.Expr;
 import haxe.macro.*;
 using haxe.macro.ComplexTypeTools;
-#if display
+#if (display || doc)
 /** An easily extendible and portable quick way for defining a library in Haxe **/
 extern class EasyLibrary {
 	/** The underlying library **/

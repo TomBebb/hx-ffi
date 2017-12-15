@@ -1,5 +1,9 @@
 import ffi.Type.*;
+import utest.Assert;
 class TestTypes {
+	public function new() {
+
+	}
 	public function testInt():Void {
 		Assert.equals(4, SINT32.size);
 		Assert.equals(null, SINT32.elements);

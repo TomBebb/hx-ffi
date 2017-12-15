@@ -14,7 +14,7 @@
 	<files id="common">
 		<compilerflag value="-Wno-conversion" if="linux"/>
 		<compilerflag value="-Ilibffi/bin/include"/>
-		<file name="common/ExternalInterface.cpp"/>
+		<file name="common/ExternalInterface.c"/>
 	</files>
 	
 	<set name="tool" value="exe" unless="iphone"/>
@@ -29,7 +29,7 @@
 	<set name="name_extra" value="-x86" if="simulator" unless="iphonesim" />
 	<set name="debug_extra" value="-debug" if="fulldebug" />
 	<target id="NDLL" output="${name_prefix}ffi${debug_extra}${name_extra}" tool="linker" toolid="${ndll-tool}">
-		<compilerflag value="-Llibffi/bin/include"/>
+		<compilerflag value="-Llibffi/bin/lib"/>
 		<outdir name="../ndll/${BINDIR}" />
 		<ext value=".ndll" unless="mobile"/>
 		<ext value=".a" if="emscripten"/>
