@@ -1,6 +1,6 @@
 HxFFI [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE.md) [![Haxelib Version](https://img.shields.io/github/tag/TopHattedCoder/hx-ffi.svg?style=flat&label=haxelib)](http://lib.haxe.org/p/ffi) [Documentation](https://tombebbington.github.io/hx-ffi/)
 =====
-HxFFI is a Haxe library that allows you to quickly use native libraries quickly without any wrappers! It does this using LibFFI and uses a similar method to JNA.
+HxFFI is a Haxe library that allows you to quickly use native libraries quickly without any annoying wrapper functions! It does this using LibFFI, using a method similar method to JNA. This only works with languages that have C-compatible FFIs like C itself, and Rust externs.  
 
 Supported types
 ---------------
@@ -25,11 +25,11 @@ __struct__                  | Struct&lt;ordered types...&gt;| Array&lt;Dynamic&g
 
 Usage
 -----
-You can use FFI easily and transparently by extending `ffi.lib.EasyLibrary` as seen in the samples.
+You can use FFI easily and transparently by extending `ffi.lib.EasyLibrary`.
 
 Using Structs
 -------------
-Structs can be declared like this:
+Structs can be declared for a library-wrapping class like this:
 
 ```haxe
 @:struct(SDLRect => {
@@ -44,10 +44,11 @@ class SDL {
     public function SDL_BlitSurface(...,dest: SDLRect...):Int;
 }
 ```
+This feature does not work with C++ FFIs as structs have a different memory layout from normal C.
+
 Supported Platforms
 -------------------
 
-+ Neko / Linux (full)
-+ Neko / Mac OS (should work, untested)
-+ Neko / Windows (might work, untested)
-+ Java (partial support using JNA, no structs yet)
++ Neko / C++ on Linux (full, tested with a global libffi-dev install)
++ Neko / C++ on Mac OS (should work, untested)
++ Neko / C++ on Windows (might work, untested)

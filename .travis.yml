@@ -1,4 +1,5 @@
 language: haxe
 script:
+  - haxelib install utest
   - cd project; make all
   - cd unit; haxelib dev ffi ..; haxe build.hxml
