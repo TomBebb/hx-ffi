@@ -309,6 +309,106 @@
 			<m n=":runtimeValue"/>
 		</meta>
 	</abstract>
+	<class path="Date" params="" file="/usr/share/haxe/std/Date.hx" extern="1">
+		<now public="1" set="method" static="1">
+			<f a=""><c path="Date"/></f>
+			<haxe_doc>Returns a Date representing the current local time.</haxe_doc>
+		</now>
+		<fromTime public="1" set="method" static="1">
+			<f a="t">
+				<x path="Float"/>
+				<c path="Date"/>
+			</f>
+			<haxe_doc>Returns a Date from timestamp `t`.</haxe_doc>
+		</fromTime>
+		<fromString public="1" set="method" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="Date"/>
+			</f>
+			<haxe_doc>Returns a Date from a formated string `s`, with the following accepted
+		formats:
+
+		- `"YYYY-MM-DD hh:mm:ss"`
+		- `"YYYY-MM-DD"`
+		- `"hh:mm:ss"`
+
+		The first two formats are expressed in local time, the third in UTC
+		Epoch.</haxe_doc>
+		</fromString>
+		<getTime public="1" set="method">
+			<f a=""><x path="Float"/></f>
+			<haxe_doc>Returns the timestamp (in milliseconds) of the date. It might
+		only have a per-second precision depending on the platforms.</haxe_doc>
+		</getTime>
+		<getHours public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the hours of `this` Date (0-23 range).</haxe_doc>
+		</getHours>
+		<getMinutes public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the minutes of `this` Date (0-59 range).</haxe_doc>
+		</getMinutes>
+		<getSeconds public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the seconds of `this` Date (0-59 range).</haxe_doc>
+		</getSeconds>
+		<getFullYear public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the full year of `this` Date (4-digits).</haxe_doc>
+		</getFullYear>
+		<getMonth public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the month of `this` Date (0-11 range).</haxe_doc>
+		</getMonth>
+		<getDate public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the day of `this` Date (1-31 range).</haxe_doc>
+		</getDate>
+		<getDay public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the day of the week of `this` Date (0-6 range) where `0` is Sunday.</haxe_doc>
+		</getDay>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a string representation of `this` Date, by using the
+		standard format [YYYY-MM-DD HH:MM:SS]. See `DateTools.format` for
+		other formating rules.</haxe_doc>
+		</toString>
+		<new public="1" set="method">
+			<f a="year:month:day:hour:min:sec">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new date object from the given arguments.
+
+		The behaviour of a Date instance is only consistent across platforms if
+		the the arguments describe a valid date.
+
+		- month: 0 to 11
+		- day: 1 to 31
+		- hour: 0 to 23
+		- min: 0 to 59
+		- sec: 0 to 59</haxe_doc>
+		</new>
+		<haxe_doc>The Date class provides a basic structure for date and time related
+	information. Date instances can be created by
+
+	- `new Date()` for a specific date,
+	- `Date.now()` to obtain information about the current time,
+	- `Date.fromTime()` with a given timestamp or
+	- `Date.fromString()` by parsing from a String.
+
+	There are some extra functions available in the `DateTools` class.
+
+	In the context of Haxe dates, a timestamp is defined as the number of
+	milliseconds elapsed since 1st January 1970.</haxe_doc>
+	</class>
 	<abstract path="Enum" params="T" file="/usr/share/haxe/std/Enum.hx">
 		<this><x path="Enum"><c path="Enum.T"/></x></this>
 		<haxe_doc>An abstract type that represents an Enum type.
@@ -386,6 +486,284 @@
 			<m n=":deprecated"/>
 		</meta>
 	</typedef>
+	<class path="Math" params="" file="/usr/share/haxe/std/Math.hx" extern="1">
+		<PI public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>Represents the ratio of the circumference of a circle to its diameter,
+		specified by the constant, π. `PI` is approximately 3.141592653589793.</haxe_doc>
+		</PI>
+		<NEGATIVE_INFINITY public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>A special `Float` constant which denotes negative infinity.
+
+		For example, this is the result of -1.0 / 0.0.
+
+		Operations with `NEGATIVE_INFINITY` as an operand may result in
+		`NEGATIVE_INFINITY`, `POSITIVE_INFINITY` or `NaN`.
+
+		If this constant is converted to an `Int`, e.g. through `Std.int()`, the
+		result is unspecified.</haxe_doc>
+		</NEGATIVE_INFINITY>
+		<POSITIVE_INFINITY public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>A special `Float` constant which denotes positive infinity.
+
+		For example, this is the result of 1.0 / 0.0.
+
+		Operations with `POSITIVE_INFINITY` as an operand may result in
+		`NEGATIVE_INFINITY`, `POSITIVE_INFINITY` or `NaN`.
+
+		If this constant is converted to an `Int`, e.g. through `Std.int()`, the
+		result is unspecified.</haxe_doc>
+		</POSITIVE_INFINITY>
+		<NaN public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc><![CDATA[A special `Float` constant which denotes an invalid number.
+
+		NaN stands for "Not a Number". It occurs when a mathematically incorrect
+		operation is executed, such as taking the square root of a negative
+		number: Math.sqrt(-1).
+
+		All further operations with `NaN` as an operand will result in `NaN`.
+
+		If this constant is converted to an `Int`, e.g. through `Std.int()`, the
+		result is unspecified.
+
+		In order to test if a value is `NaN`, you should use `Math.isNaN()` function.
+
+		@php In PHP versions prior to 5.3.1 VC 9 there may be unexpected
+		results when performing arithmetic operations with `NaN` on Windows,
+		see <https://bugs.php.net/bug.php?id=42143>]]></haxe_doc>
+		</NaN>
+		<abs public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the absolute value of `v`.
+
+		If `v` is positive or 0, the result is unchanged. Otherwise the result
+		is -`v`.
+
+		If `v` is `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is
+		`POSITIVE_INFINITY`.
+
+		If `v` is `NaN`, the result is `NaN`.</haxe_doc>
+		</abs>
+		<min public="1" set="method" static="1">
+			<f a="a:b">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the smaller of values `a` and `b`.
+
+		If `a` or `b` are `NaN`, the result is `NaN`.
+		If `a` or `b` are `NEGATIVE_INFINITY`, the result is `NEGATIVE_INFINITY`.
+		If `a` and `b` are `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.</haxe_doc>
+		</min>
+		<max public="1" set="method" static="1">
+			<f a="a:b">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the greater of values `a` and `b`.
+
+		If `a` or `b` are `NaN`, the result is `NaN`.
+		If `a` or `b` are `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.
+		If `a` and `b` are `NEGATIVE_INFINITY`, the result is `NEGATIVE_INFINITY`.</haxe_doc>
+		</max>
+		<sin public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric sine of the specified angle `v`, in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</sin>
+		<cos public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric cosine of the specified angle `v`, in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</cos>
+		<tan public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric tangent of the specified angle `v`, in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</tan>
+		<asin public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric arc of the specified angle `v`, in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</asin>
+		<acos public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric arc cosine of the specified angle `v`,
+		in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</acos>
+		<atan public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric arc tangent of the specified angle `v`,
+		in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</atan>
+		<atan2 public="1" set="method" static="1">
+			<f a="y:x">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric arc tangent whose tangent is the quotient of
+		two specified numbers, in radians.
+
+		If parameter `x` or `y`  is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`,
+		the result is `NaN`.</haxe_doc>
+		</atan2>
+		<exp public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns Euler's number, raised to the power of `v`.
+
+		exp(1.0) is approximately 2.718281828459.
+
+		If `v` is `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.
+		If `v` is `NEGATIVE_INFINITY`, the result is `0.0`.
+		If `v` is `NaN`, the result is `NaN`.</haxe_doc>
+		</exp>
+		<log public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the natural logarithm of `v`.
+
+		This is the mathematical inverse operation of exp,
+		i.e. `log(exp(v)) == v` always holds.
+
+		If `v` is negative (including `NEGATIVE_INFINITY`) or `NaN`, the result
+		is `NaN`.
+		If `v` is `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.
+		If `v` is `0.0`, the result is `NEGATIVE_INFINITY`.</haxe_doc>
+		</log>
+		<pow public="1" set="method" static="1">
+			<f a="v:exp">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns a specified base `v` raised to the specified power `exp`.</haxe_doc>
+		</pow>
+		<sqrt public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the square root of `v`.
+
+		If `v` is negative (including `NEGATIVE_INFINITY`) or `NaN`, the result
+		is `NaN`.
+		If `v` is `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.
+		If `v` is `0.0`, the result is `0.0`.</haxe_doc>
+		</sqrt>
+		<round public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Rounds `v` to the nearest integer value.
+
+		Ties are rounded up, so that `0.5` becomes `1` and `-0.5` becomes `0`.
+
+		If `v` is outside of the signed `Int32` range, or is `NaN`, `NEGATIVE_INFINITY`
+		or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
+		</round>
+		<floor public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the largest integer value that is not greater than `v`.
+
+		If `v` is outside of the signed `Int32` range, or is `NaN`, `NEGATIVE_INFINITY`
+		or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
+		</floor>
+		<ceil public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the smallest integer value that is not less than `v`.
+
+		If `v` is outside of the signed `Int32` range, or is `NaN`, `NEGATIVE_INFINITY`
+		or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
+		</ceil>
+		<random public="1" set="method" static="1">
+			<f a=""><x path="Float"/></f>
+			<haxe_doc>Returns a pseudo-random number which is greater than or equal to 0.0,
+		and less than 1.0.</haxe_doc>
+		</random>
+		<ffloor public="1" get="inline" set="null" line="267" static="1"><f a="v">
+	<x path="Float"/>
+	<x path="Float"/>
+</f></ffloor>
+		<fceil public="1" get="inline" set="null" line="271" static="1"><f a="v">
+	<x path="Float"/>
+	<x path="Float"/>
+</f></fceil>
+		<fround public="1" get="inline" set="null" line="275" static="1"><f a="v">
+	<x path="Float"/>
+	<x path="Float"/>
+</f></fround>
+		<isFinite public="1" set="method" static="1">
+			<f a="f">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if `f` is a finite number.
+
+		If `f` is `POSITIVE_INFINITY`, `NEGATIVE_INFINITY` or `NaN`, the result
+		is `false`, otherwise the result is `true`.</haxe_doc>
+		</isFinite>
+		<isNaN public="1" set="method" static="1">
+			<f a="f">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if `f` is not a valid number.
+
+		If `f` is `NaN`, the result is `true`, otherwise the result is `false`.
+		In particular, both `POSITIVE_INFINITY` and `NEGATIVE_INFINITY` are
+		not considered `NaN`.</haxe_doc>
+		</isNaN>
+		<haxe_doc>This class defines mathematical functions and constants.
+
+	@see https://haxe.org/manual/std-math.html</haxe_doc>
+	</class>
 	<class path="Reflect" params="" file="/usr/share/haxe/std/Reflect.hx" extern="1">
 		<hasField public="1" set="method" static="1">
 			<f a="o:field">
@@ -1015,6 +1393,148 @@
 	
 	@see https://haxe.org/manual/std-String.html</haxe_doc>
 	</class>
+	<class path="Sys" params="" file="/usr/share/haxe/std/Sys.hx" extern="1">
+		<print public="1" set="method" static="1">
+			<f a="v">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Print any value on the standard output.</haxe_doc>
+		</print>
+		<println public="1" set="method" static="1">
+			<f a="v">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Print any value on the standard output, followed by a newline.</haxe_doc>
+		</println>
+		<args public="1" set="method" static="1">
+			<f a=""><c path="Array"><c path="String"/></c></f>
+			<haxe_doc>Returns all the arguments that were passed by the command line.</haxe_doc>
+		</args>
+		<getEnv public="1" set="method" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the value of the given environment variable.</haxe_doc>
+		</getEnv>
+		<putEnv public="1" set="method" static="1">
+			<f a="s:v">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Set the value of the given environment variable.</haxe_doc>
+		</putEnv>
+		<environment public="1" set="method" static="1">
+			<f a=""><x path="Map">
+	<c path="String"/>
+	<c path="String"/>
+</x></f>
+			<haxe_doc>Returns all environment variables.</haxe_doc>
+		</environment>
+		<sleep public="1" set="method" static="1">
+			<f a="seconds">
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Suspend the current execution for the given time (in seconds).</haxe_doc>
+		</sleep>
+		<setTimeLocale public="1" set="method" static="1">
+			<f a="loc">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Change the current time locale, which will affect `DateTools.format` date formating.
+		Returns true if the locale was successfully changed</haxe_doc>
+		</setTimeLocale>
+		<getCwd public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Get the current working directory (usually the one in which the program was started)</haxe_doc>
+		</getCwd>
+		<setCwd public="1" set="method" static="1">
+			<f a="s">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Change the current working directory.</haxe_doc>
+		</setCwd>
+		<systemName public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the name of the system you are running on. For instance :
+			"Windows", "Linux", "BSD" and "Mac" depending on your desktop OS.</haxe_doc>
+		</systemName>
+		<command public="1" set="method" static="1">
+			<f a="cmd:?args">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Run the given command. The command output will be printed on the same output as the current process.
+		The current process will block until the command terminates and it will return the command result (0 if there was no error).
+
+		Command arguments can be passed in two ways: 1. using `args`, 2. appending to `cmd` and leaving `args` as `null`.
+
+		 1. When using `args` to pass command arguments, each argument will be automatically quoted, and shell meta-characters will be escaped if needed.
+		`cmd` should be an executable name that can be located in the `PATH` environment variable, or a path to an executable.
+
+		 2. When `args` is not given or is `null`, command arguments can be appended to `cmd`. No automatic quoting/escaping will be performed. `cmd` should be formatted exactly as it would be when typed at the command line.
+		It can run executables, as well as shell commands that are not executables (e.g. on Windows: `dir`, `cd`, `echo` etc).
+
+		Read the `sys.io.Process` api for a more complete way to start background processes.</haxe_doc>
+		</command>
+		<exit public="1" set="method" static="1">
+			<f a="code">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Exit the current process with the given error code.</haxe_doc>
+		</exit>
+		<time public="1" set="method" static="1">
+			<f a=""><x path="Float"/></f>
+			<haxe_doc>Gives the most precise timestamp value (in seconds).</haxe_doc>
+		</time>
+		<cpuTime public="1" set="method" static="1">
+			<f a=""><x path="Float"/></f>
+			<haxe_doc>Gives the most precise timestamp value (in seconds) but only account for the actual time spent running on the CPU for the current thread/process.</haxe_doc>
+		</cpuTime>
+		<executablePath public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":deprecated"><e>"Use programPath instead"</e></m></meta>
+			<haxe_doc>Returns the path to the current executable that we are running.</haxe_doc>
+		</executablePath>
+		<programPath public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the absolute path to the current program file that we are running.
+		Concretely, for an executable binary, it returns the path to the binary.
+		For a script (e.g. a PHP file), it returns the path to the script.</haxe_doc>
+		</programPath>
+		<getChar public="1" set="method" static="1">
+			<f a="echo">
+				<x path="Bool"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Read a single input character from the standard input (without blocking) and returns it. Setting `echo` to true will also display it on the output.</haxe_doc>
+		</getChar>
+		<stdin public="1" set="method" static="1">
+			<f a=""><c path="haxe.io.Input"/></f>
+			<haxe_doc>Returns the process standard input, from which you can read what user enters. Usually it will block until the user send a full input line. See `getChar` for an alternative.</haxe_doc>
+		</stdin>
+		<stdout public="1" set="method" static="1">
+			<f a=""><c path="haxe.io.Output"/></f>
+			<haxe_doc>Returns the process standard output on which you can write.</haxe_doc>
+		</stdout>
+		<stderr public="1" set="method" static="1">
+			<f a=""><c path="haxe.io.Output"/></f>
+			<haxe_doc>Returns the process standard error on which you can write.</haxe_doc>
+		</stderr>
+		<haxe_doc>This class gives you access to many base functionalities of system platforms. Looks in `sys` sub packages for more system APIs.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":require"><e>sys</e></m>
+		</meta>
+	</class>
 	<class path="Type" params="" file="/usr/share/haxe/std/Type.hx" extern="1">
 		<getClass public="1" params="T" set="method" static="1">
 			<f a="o">
@@ -1543,23 +2063,36 @@
 		</toString>
 		<haxe_doc>A native type.</haxe_doc>
 	</class>
-	<class path="ffi.lib.EasyLibrary" params="" file="ffi/lib/EasyLibrary.hx" extern="1">
-		<lib public="1" set="null">
-			<c path="ffi.lib.Library"/>
-			<haxe_doc>The underlying library</haxe_doc>
-		</lib>
-		<name public="1" set="null">
+	<class path="ffi.lib.EasyLibrary" params="" file="ffi/lib/EasyLibrary.hx">
+		<EXTENSION public="1" expr="switch (Sys.systemName()) {
+	case &quot;Windows&quot;:
+		&quot;dll&quot;;	
+	case &quot;Mac&quot;:
+		&quot;dynlib&quot;;	
+	default:
+		&quot;so&quot;;	
+}" line="24" static="1">
 			<c path="String"/>
-			<haxe_doc>The name of the library</haxe_doc>
-		</name>
-		<new public="1" set="method">
-			<f a="name">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Loads the library with the given name/path or throws an error</haxe_doc>
-		</new>
-		<haxe_doc>An easily extendible and portable quick way for defining a library in Haxe</haxe_doc>
+			<meta><m n=":value"><e>switch (Sys.systemName()) {
+	case "Windows":
+		"dll";	
+	case "Mac":
+		"dynlib";	
+	default:
+		"so";	
+}</e></m></meta>
+		</EXTENSION>
+		<lib public="1" set="null"><c path="ffi.lib.Library"/></lib>
+		<name public="1" set="null"><c path="String"/></name>
+		<toString public="1" get="inline" set="null" line="70"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method" line="37"><f a="nameOrPath">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":autoBuild"><e>ffi.lib.EasyLibrary.build()</e></m>
+		</meta>
 	</class>
 	<class path="ffi.lib.Library" params="" file="ffi/lib/Library.hx" extern="1">
 		<LOCAL public="1" set="null" static="1">
@@ -1585,6 +2118,7 @@
 			<haxe_doc>Loads a symbol from the library</haxe_doc>
 		</get>
 		<haxe_doc>A runtime shared libary - a .dll on Windows, a .so on Linux and a .dynlib on Mac OS X</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<abstract path="haxe.Function" params="" file="/usr/share/haxe/std/haxe/Constraints.hx" module="haxe.Constraints">
 		<this><d/></this>
@@ -1810,6 +2344,50 @@
 	If the first argument to any of the methods is null, the result is
 	unspecified.</haxe_doc>
 	</class>
+	<abstract path="haxe.Int32" params="" file="/usr/share/haxe/std/haxe/Int32.hx">
+		<from><icast><x path="Int"/></icast></from>
+		<this><x path="Int"/></this>
+		<to>
+			<icast><x path="Int"/></icast>
+			<icast field="toFloat"><x path="Float"/></icast>
+		</to>
+		<haxe_doc>Int32 provides a 32-bit integer with consistent overflow behavior across
+ 	all platforms.</haxe_doc>
+		<impl><class path="haxe._Int32.Int32_Impl_" params="" file="/usr/share/haxe/std/haxe/Int32.hx" private="1" module="haxe.Int32"><meta>
+	<m n=":keep"/>
+	<m n=":final"/>
+</meta></class></impl>
+	</abstract>
+	<abstract path="haxe.Int64" params="" file="/usr/share/haxe/std/haxe/Int64.hx">
+		<from>
+			<icast><t path="haxe._Int64.__Int64"/></icast>
+			<icast field="ofInt"><x path="Int"/></icast>
+		</from>
+		<this><t path="haxe._Int64.__Int64"/></this>
+		<to><icast><t path="haxe._Int64.__Int64"/></icast></to>
+		<haxe_doc>A cross-platform signed 64-bit integer.
+	Int64 instances can be created from two 32-bit words using `Int64.make()`.</haxe_doc>
+		<impl><class path="haxe._Int64.Int64_Impl_" params="" file="/usr/share/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64">
+	<high public="1" get="accessor" set="null" static="1">
+		<x path="haxe.Int32"/>
+		<meta><m n=":impl"/></meta>
+	</high>
+	<low public="1" get="accessor" set="null" static="1">
+		<x path="haxe.Int32"/>
+		<meta><m n=":impl"/></meta>
+	</low>
+	<meta>
+		<m n=":keep"/>
+		<m n=":final"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<typedef path="haxe._Int64.__Int64" params="" file="/usr/share/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64">
+		<c path="haxe._Int64.___Int64"/>
+		<haxe_doc>* This typedef will fool @:coreApi into thinking that we are using
+  * the same underlying type, even though it might be different on
+  * specific platforms.</haxe_doc>
+	</typedef>
 	<abstract path="haxe.ds.HashMap" params="K:V" file="/usr/share/haxe/std/haxe/ds/HashMap.hx">
 		<this><c path="haxe.ds._HashMap.HashMapData">
 	<c path="haxe.ds.HashMap.K"/>
@@ -1997,6 +2575,14 @@
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 	</class>
 	<typedef path="haxe.io.BytesData" params="" file="/usr/share/haxe/std/haxe/io/BytesData.hx"><c path="Array"><x path="Int"/></c></typedef>
+	<class path="haxe.io.Eof" params="" file="/usr/share/haxe/std/haxe/io/Eof.hx">
+		<toString set="method" line="30">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":keep"/></meta>
+		</toString>
+		<haxe_doc>This exception is raised when reading while data is no longer available in the `haxe.io.Input`.</haxe_doc>
+		<meta><m n=":keep"/></meta>
+	</class>
 	<typedef path="haxe.macro.Position" params="" file="/usr/share/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<a>
 			<min>
@@ -2886,4 +3472,319 @@
 		</a>
 		<haxe_doc>Represents a typed AST node.</haxe_doc>
 	</typedef>
+	<typedef path="sys.FileStat" params="" file="/usr/share/haxe/std/sys/FileStat.hx">
+		<a>
+			<uid>
+				<x path="Int"/>
+				<haxe_doc>The user id for the file's owner.</haxe_doc>
+			</uid>
+			<size>
+				<x path="Int"/>
+				<haxe_doc>The size of the file, in bytes.</haxe_doc>
+			</size>
+			<rdev>
+				<x path="Int"/>
+				<haxe_doc>The device type on which stat resides (special files only).</haxe_doc>
+			</rdev>
+			<nlink>
+				<x path="Int"/>
+				<haxe_doc>The number of hard links to stat.</haxe_doc>
+			</nlink>
+			<mtime>
+				<c path="Date"/>
+				<haxe_doc>The last modification time for the file.</haxe_doc>
+			</mtime>
+			<mode>
+				<x path="Int"/>
+				<haxe_doc>The permission bits of stat. The meaning of the bits is platform dependent.</haxe_doc>
+			</mode>
+			<ino>
+				<x path="Int"/>
+				<haxe_doc>The inode number for stat.</haxe_doc>
+			</ino>
+			<gid>
+				<x path="Int"/>
+				<haxe_doc>The user group id for the file's owner.</haxe_doc>
+			</gid>
+			<dev>
+				<x path="Int"/>
+				<haxe_doc>The device on which stat resides.</haxe_doc>
+			</dev>
+			<ctime>
+				<c path="Date"/>
+				<haxe_doc>The creation time for the file (not all file systems support this).</haxe_doc>
+			</ctime>
+			<atime>
+				<c path="Date"/>
+				<haxe_doc>The last access time for the file (when enabled by the file system).</haxe_doc>
+			</atime>
+		</a>
+		<haxe_doc>File information, as given by `sys.FileSystem.stat`.</haxe_doc>
+	</typedef>
+	<class path="sys.FileSystem" params="" file="/usr/share/haxe/std/sys/FileSystem.hx" extern="1">
+		<exists public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if the file or directory specified by `path` exists.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</exists>
+		<rename public="1" set="method" static="1">
+			<f a="path:newPath">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Renames/moves the file or directory specified by `path` to `newPath`.
+
+		If `path` is not a valid file system entry, or if it is not accessible,
+		or if `newPath` is not accessible, an exception is thrown.
+
+		If `path` or `newPath` are null, the result is unspecified.</haxe_doc>
+		</rename>
+		<stat public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<t path="sys.FileStat"/>
+			</f>
+			<haxe_doc>Returns `FileStat` information on the file or directory specified by
+		`path`.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</stat>
+		<fullPath public="1" set="method" static="1">
+			<f a="relPath">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the full path of the file or directory specified by `relPath`,
+		which is relative to the current working directory. Symlinks will be
+		followed and the path will be normalized.
+
+		If `relPath` is null, the result is unspecified.</haxe_doc>
+		</fullPath>
+		<absolutePath public="1" set="method" static="1">
+			<f a="relPath">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the full path of the file or directory specified by `relPath`,
+		which is relative to the current working directory. The path doesn't
+		have to exist.
+
+		If `relPath` is null, the result is unspecified.</haxe_doc>
+		</absolutePath>
+		<isDirectory public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if the file or directory specified by `path` is a directory.
+
+		If `path` is not a valid file system entry or if its destination is not
+		accessible, an exception is thrown.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</isDirectory>
+		<createDirectory public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a directory specified by `path`.
+
+		This method is recursive: The parent directories don't have to exist.
+
+		If the directory cannot be created, an exception is thrown.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</createDirectory>
+		<deleteFile public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Deletes the file specified by `path`.
+
+		If `path` does not denote a valid file, or if that file cannot be
+		deleted, an exception is thrown.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</deleteFile>
+		<deleteDirectory public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Deletes the directory specified by `path`.
+
+		If `path` does not denote a valid directory, or if that directory cannot
+		be deleted, an exception is thrown.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</deleteDirectory>
+		<readDirectory public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns the names of all files and directories in the directory specified
+		by `path`.
+
+		If `path` does not denote a valid directory, an exception is thrown.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</readDirectory>
+		<haxe_doc>This class allows you to get information about the files and directories.
+
+	See `sys.io.File` for the complementary file API.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="sys.io.File" params="" file="/usr/share/haxe/std/sys/io/File.hx" extern="1">
+		<getContent public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Retrieves the content of the file specified by `path` as a String.
+
+		If the file does not exist or can not be read, an exception is thrown.
+
+		`sys.FileSystem.exists` can be used to check for existence.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</getContent>
+		<saveContent public="1" set="method" static="1">
+			<f a="path:content">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Stores `content` in the file specified by `path`.
+
+		If the file cannot be written to, an exception is thrown.
+
+		If `path` or `content` are null, the result is unspecified.</haxe_doc>
+		</saveContent>
+		<getBytes public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<haxe_doc>Retrieves the binary content of the file specified by `path`.
+
+		If the file does not exist or can not be read, an exception is thrown.
+
+		`sys.FileSystem.exists` can be used to check for existence.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</getBytes>
+		<saveBytes public="1" set="method" static="1">
+			<f a="path:bytes">
+				<c path="String"/>
+				<c path="haxe.io.Bytes"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Stores `bytes` in the file specified by `path` in binary mode.
+
+		If the file cannot be written to, an exception is thrown.
+
+		If `path` or `bytes` are null, the result is unspecified.</haxe_doc>
+		</saveBytes>
+		<read public="1" set="method" static="1">
+			<f a="path:?binary" v=":true">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="sys.io.FileInput"/>
+			</f>
+			<meta><m n=":value"><e>{ binary : true }</e></m></meta>
+			<haxe_doc>Returns an `FileInput` handle to the file specified by `path`.
+
+		If `binary` is true, the file is opened in binary mode. Otherwise it is
+		opened in non-binary mode.
+
+		If the file does not exist or can not be read, an exception is thrown.
+
+		Operations on the returned `FileInput` handle read on the opened file.
+
+		File handles should be closed via `FileInput.close` once the operation
+		is complete.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</read>
+		<write public="1" set="method" static="1">
+			<f a="path:?binary" v=":true">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="sys.io.FileOutput"/>
+			</f>
+			<meta><m n=":value"><e>{ binary : true }</e></m></meta>
+			<haxe_doc>Returns an `FileOutput` handle to the file specified by `path`.
+
+		If `binary` is true, the file is opened in binary mode. Otherwise it is
+		opened in non-binary mode.
+
+		If the file cannot be written to, an exception is thrown.
+
+		Operations on the returned `FileOutput` handle write to the opened file.
+		If the file existed, its previous content is overwritten.
+
+		File handles should be closed via `FileOutput.close` once the operation
+		is complete.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</write>
+		<append public="1" set="method" static="1">
+			<f a="path:?binary" v=":true">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="sys.io.FileOutput"/>
+			</f>
+			<meta><m n=":value"><e>{ binary : true }</e></m></meta>
+			<haxe_doc>Similar to `sys.io.File.write`, but appends to the file if it exists
+		instead of overwriting its contents.</haxe_doc>
+		</append>
+		<copy public="1" set="method" static="1">
+			<f a="srcPath:dstPath">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Copies the contents of the file specified by `srcPath` to the file
+		specified by `dstPath`.
+
+		If the `srcPath` does not exist or cannot be read, or if the `dstPath`
+		file cannot be written to, an exception is thrown.
+
+		If the file at `dstPath` exists, its contents are overwritten.
+
+		If `srcPath` or `dstPath` are null, the result is unspecified.</haxe_doc>
+		</copy>
+		<haxe_doc>API for reading and writing to files.
+
+	See `sys.FileSystem` for the complementary file system API.</haxe_doc>
+	</class>
+	<class path="sys.io.FileInput" params="" file="/usr/share/haxe/std/sys/io/FileInput.hx" extern="1">
+		<extends path="haxe.io.Input"/>
+		<seek public="1" set="method"><f a="p:pos">
+	<x path="Int"/>
+	<e path="sys.io.FileSeek"/>
+	<x path="Void"/>
+</f></seek>
+		<tell public="1" set="method"><f a=""><x path="Int"/></f></tell>
+		<eof public="1" set="method"><f a=""><x path="Bool"/></f></eof>
+		<haxe_doc>Use `sys.io.File.read` to create a `FileInput`.</haxe_doc>
+	</class>
+	<class path="sys.io.FileOutput" params="" file="/usr/share/haxe/std/sys/io/FileOutput.hx" extern="1">
+		<extends path="haxe.io.Output"/>
+		<seek public="1" set="method"><f a="p:pos">
+	<x path="Int"/>
+	<e path="sys.io.FileSeek"/>
+	<x path="Void"/>
+</f></seek>
+		<tell public="1" set="method"><f a=""><x path="Int"/></f></tell>
+		<haxe_doc>Use `sys.io.File.write` to create a `FileOutput`.</haxe_doc>
+	</class>
 </haxe>
