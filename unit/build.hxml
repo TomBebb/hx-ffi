@@ -1,3 +1,4 @@
+-cmd bash -c "cd test && make"
 -main Unit
 -x run
 -lib ffi

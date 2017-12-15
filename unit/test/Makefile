@@ -1,3 +1,3 @@
 all: build
 build:
-	clang test.c -o test.so -shared -fPIC
+	cc test.c -o test.so -shared -fPIC
