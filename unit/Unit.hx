@@ -1,10 +1,12 @@
-import haxe.unit.*;
+import utest.Runner;
+import utest.ui.Report;
 class Unit {
 	static function main() {
-		var r = new TestRunner();
-		r.add(new TestTypes());
-		r.add(new TestMath());
-		r.add(new TestTests());
+		var r = new Runner();
+		r.addCase(new TestTypes());
+		r.addCase(new TestMath());
+		r.addCase(new TestTests());
 		r.run();
+		Report.create(r);
 	}
 }

@@ -1,34 +1,34 @@
-import haxe.unit.*;
-class TestMath extends TestCase {
+import utest.Assert;
+
+class TestMath {
 	var m:NativeMath;
-	public override function setup():Void {
-		super.setup();
+	public function new() {
 		m = new NativeMath();
 	}
 	public function testSqrt():Void {
-		assertEquals(10.0, m.sqrt(100));
-		assertEquals(2.0, m.sqrt(4));
+		Assert.equals(10.0, m.sqrt(100));
+		Assert.equals(2.0, m.sqrt(4));
 	}
 	public function testPow():Void {
-		assertEquals(4.0, m.pow(2, 2));
-		assertEquals(25.0, m.pow(5, 2));
-		assertEquals(21.0, m.pow(m.sqrt(21), 2));
-		assertEquals(256.0, m.pow(2, 8));
-		assertEquals(2.0, m.pow(4, 0.5));
+		Assert.equals(4.0, m.pow(2, 2));
+		Assert.equals(25.0, m.pow(5, 2));
+		Assert.equals(21.0, m.pow(m.sqrt(21), 2));
+		Assert.equals(256.0, m.pow(2, 8));
+		Assert.equals(2.0, m.pow(4, 0.5));
 	}
 	public function testTrig():Void {
-		assertEquals(-1.0, m.cos(Math.PI));
-		assertEquals(0.0, m.sin(0));
+		Assert.equals(-1.0, m.cos(Math.PI));
+		Assert.equals(0.0, m.sin(0));
 	}
 	public function testCbrt():Void {
 		for(i in 2...50) {
 			var ix:Float = i;
-			assertEquals(ix, Math.round(m.cbrt(m.pow(ix, 3))));
+			Assert.equals(ix, Math.round(m.cbrt(m.pow(ix, 3))));
 		}
 	}
 	public function testRound():Void {
-		assertEquals(-3.0, m.round(-3.4));
-		assertEquals(3, haxe.Int64.toInt(m.llround(3.2)));
+		Assert.equals(-3.0, m.round(-3.4));
+		Assert.equals(3, haxe.Int64.toInt(m.llround(3.2)));
 	}
 }
 @:lib("m")

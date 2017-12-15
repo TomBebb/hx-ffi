@@ -1,12 +1,11 @@
-import haxe.unit.*;
 import ffi.Type.*;
-class TestTypes extends TestCase {
+class TestTypes {
 	public function testInt():Void {
-		assertEquals(4, SINT32.size);
-		assertEquals(null, SINT32.elements);
+		Assert.equals(4, SINT32.size);
+		Assert.equals(null, SINT32.elements);
 	}
 	public function testStruct():Void {
 		var s = createStruct([SINT32, UINT32]);
-		assertEquals("{Int32, UInt32}", s.toString());
+		Assert.equals("{Int32, UInt32}", s.toString());
 	}
 }

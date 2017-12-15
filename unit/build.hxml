@@ -3,6 +3,7 @@
 -main Unit
 -java java
 -lib ffi
+-lib utest
 -cmd java -jar java/java.jar
 -cmd echo ======NODE======
 --next
@@ -10,9 +11,11 @@
 -js run.js
 -lib ffi
 -lib nodejs
+-lib utest
 -cmd node run.js
 -cmd echo ======NEKO======
 --next
 -main Unit
 -x run
 -lib ffi
+-lib utest

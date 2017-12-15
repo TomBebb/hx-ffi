@@ -1,30 +1,30 @@
-import haxe.unit.*;
-class TestTests extends TestCase {
+import utest.Assert;
+
+class TestTests {
 	var t:Tests;
-	public override function setup():Void {
-		super.setup();
+	public function new() {
 		t = new Tests();
 	}
 	public function testCool() {
-		assertTrue(t.get_null() == null);
-		assertEquals(1337, t.get_cool_int());
-		assertEquals("Oranges", t.get_cool_str());
-		assertEquals(88, haxe.Int64.toInt(t.add(haxe.Int64.ofInt(34), haxe.Int64.ofInt(54))));
+		Assert.isTrue(t.get_null() == null);
+		Assert.equals(1337, t.get_cool_int());
+		Assert.equals("Oranges", t.get_cool_str());
+		Assert.equals(88, haxe.Int64.toInt(t.add(haxe.Int64.ofInt(34), haxe.Int64.ofInt(54))));
 		t.print_str("Hello, world!\n");
 	}
 	public function testPerson() {
-		assertEquals(42, t.answer);
+		Assert.equals(42, t.answer);
 		t.print_answer();
 		var personPtr:ffi.Pointer = t.make_person("Tom", 234);
-		assertTrue(personPtr != null);
+		Assert.isTrue(personPtr != null);
 		var name:ffi.Pointer = personPtr.get(ffi.Type.POINTER);
-		assertTrue(name != null);
-		assertEquals("Tom", haxe.io.Bytes.ofData(name.getBytes(3)).toString());
-		assertEquals("Tom", name.getString());
+		Assert.isTrue(name != null);
+		Assert.equals("Tom", haxe.io.Bytes.ofData(name.getBytes(3)).toString());
+		Assert.equals("Tom", name.getString());
 		var person:Person = personPtr.get(Person.TYPE);
-		assertEquals("name: Tom, age: 234", person.toString());
-		assertEquals("name: Bobaffet, age: 23", new Person("Bobaffet", 23));
-		assertEquals("Tom", name.getString());
+		Assert.equals("name: Tom, age: 234", person.toString());
+		Assert.equals("name: Bobaffet, age: 23", new Person("Bobaffet", 23));
+		Assert.equals("Tom", name.getString());
 	}
 }
 @:struct(Person => {
